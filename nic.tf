@@ -1,13 +1,13 @@
-resource "azurerm_network_interface" "tf-nic" {
-  name                = "tf-nic"
-  location            = azurerm_resource_group.tf-rg.location
-  resource_group_name = azurerm_resource_group.tf-rg.name
+resource "azurerm_network_interface" "food-nic" {
+  name                = "food-nic"
+  location            = azurerm_resource_group.food-rg.location
+  resource_group_name = azurerm_resource_group.food-rg.name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.tf-subnet.id
+    subnet_id                     = azurerm_subnet.food-subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.tf-nsg-pip.id
+    public_ip_address_id          = azurerm_public_ip.food-nsg-pip.id
   }
 
   tags = {
